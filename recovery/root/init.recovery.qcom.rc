@@ -42,6 +42,13 @@ service vibratorfeature-hal-1-0 /system/bin/vendor.xiaomi.hardware.vibratorfeatu
     seclabel u:r:recovery:s0
     onrestart restart vibratorfeature
 
+service variant-script /system/bin/variant-script.sh
+    user root
+    group root
+    disabled
+    oneshot
+    seclabel u:r:recovery:s0
+
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
