@@ -3,6 +3,11 @@
 # specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
 
 # mount point  fstype  device                             device2                flags
+system          /system                 auto            logical
+vendor          /vendor                 auto            display="Vendor";logical
+product         /product                auto            display="Product";logical
+odm             /odm                    auto            display="ODM";logical
+system_ext      /system_ext             auto            logical
 
 /metadata      ext4    /dev/block/bootdevice/by-name/metadata                    flags=display="Metadata";backup=1;wrappedkey
 /data          f2fs    /dev/block/bootdevice/by-name/userdata                    flags=fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized+wrappedkey_v0,metadata_encryption=aes-256-xts:wrappedkey_v0,keydirectory=/metadata/vold/metadata_encryption
